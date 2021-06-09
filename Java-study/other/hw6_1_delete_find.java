@@ -5,7 +5,6 @@ import school4.BinarySearchTree.Node;
 public class hw6_1_delete_find {
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
-	  System.out.println("hw6_1: 박나은");
 	  
 	  System.out.print("오름차순 출력 = ");
 	  tree.printTree();   

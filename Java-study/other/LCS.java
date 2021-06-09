@@ -11,7 +11,6 @@ public class hw9_1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in =new Scanner(System.in);
-		  System.out.println("hw9_1: 박나은");
 		  System.out.print("첫번째 문자열 입력: ");
 		  char[] s1=in.nextLine().toCharArray();//문자열을 문자배열로변경
 		  System.out.print("두번째 문자열 입력: ");
