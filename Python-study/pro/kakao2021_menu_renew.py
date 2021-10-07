@@ -1,7 +1,7 @@
 #카카오2021 메뉴 리뉴얼
 #https://programmers.co.kr/learn/courses/30/lessons/72411
 #리펙토링하기!!!!
-
+"""
 from itertools import combinations
 def solution(orders, course):
     menu_renew={}
@@ -37,6 +37,21 @@ def solution(orders, course):
                 break
         maxlist = add(max, maxlist, menu_renew[index:])
 
-    return sorted(list(set(maxlist)))#혹시 있을 중복 제거
+    return sorted(list(set(maxlist)))#혹시 있을 중복 제거"""
 
-print(solution(	["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"],[2,3,4]))
+#가장 좋다고 생각한 코드
+from collections import Counter as counter
+from itertools import combinations
+
+def solution(orders, course):
+    result=[]
+    for c_size in course:
+        combi=[]
+        for order in orders:
+            combi+=combinations(sorted(list(order)), c_size)#필요한 메뉴 조합의 크기로 조합 생성
+        alot=counter(combi).most_common()#collection의 Counter를 사용해서 주문된 횟수 저장
+        most_order_combi=[''.join(co[0]) for co in alot if co[1]==alot[0][1] and co[1]>1]#2번이상 주문되고 가장 큰 것(또는 그것과 동일한) 것만 문자열로 저장
+        result+=most_order_combi#결과에 저장
+    return sorted(result)#정렬한 상태로 반환
+
+print(solution(["XYZ", "XWY", "WXA"],[2,3,4]))
