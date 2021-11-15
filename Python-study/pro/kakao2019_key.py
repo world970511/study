@@ -1,3 +1,5 @@
+#카카오2019 후보키
+#https://programmers.co.kr/learn/courses/30/lessons/42890
 from itertools import combinations
 
 def solution(relation):
