@@ -11,12 +11,16 @@ def solution(genres, plays):
     record=dict([(i[0],sorted(i[1],reverse=True)) for i in record.items()])
     # 총 재생 횟수 크기 순으로 장르 정렬
     record= dict(sorted(record.items(), key=lambda item: sum(item[1]),reverse= True))
+    print(record)
 
     for v in record.values():
         if len(v)<2:#재생 횟수 리스트의 크기가 2보다 작을 경우
+            print(plays.index(v[0]))
             ans+=[plays.index(v[0])]#재생횟수의 고유번호 리스트에 추가
             plays[plays.index(v[0])] = 'done'#사용된 것은 done으로 변경
+
         else:
+            print(plays.index(v[0]), plays.index(v[1]))
             n1=plays.index(v[0])#리스트에서 가장 큰 재생횟수를 가진 노래의 고유번호
             plays[plays.index(v[0])]='done'#사용된 것은 done으로 변경
 
@@ -27,4 +31,4 @@ def solution(genres, plays):
 
     return ans
 
-print(solution(["classic","dance"],	[800,1]))
+print(solution(["classic", "pop", "classic", "classic", "pop"],	[500, 600, 150, 500, 2500]))
